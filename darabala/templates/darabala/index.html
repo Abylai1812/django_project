@@ -1,0 +1,450 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dara Bala</title>
+    <meta name="description" content="Портал Dara Bala">
+    <meta name="author" content="Бисекенов Максат Айткалиевич">
+    <link rel="icon" href="{%static 'images/logo.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+</head>
+<body>
+
+    <header class="header">
+
+        <a href="#" class="logo">
+            <img src = "{%static 'images/logo.png'%}" alt="logo" width = 50 height = 50></a>
+
+        <nav class="navbar">
+            <a href="#home">Главная</a>
+            <a href="#news">Новости</a>
+            <a href="#about">Про нас</a>
+            <a href="#statistic">Статистика</a>
+            <a href="#education">Секции и кружки</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-user" id="login-btn"></div>
+            <a href="http://127.0.0.1:8000/admin">Вход</a>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+
+        <form action="" class="login-form">
+            <h3>Войти</h3>
+            <input type="email" placeholder="Email" class="box">
+            <input type="password" placeholder="Пароль" class="box">
+            <p>Забыли пароль? <a href="#">Нажмите здесь</a> </p>
+            <input type="submit" value="Войти" class="btn">
+        </form>
+
+    </header>
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Добро пожаловать в <span> портал Dara Bala</span></h3>
+            <p>Платформа размещения государственного заказа на дополнительное образование детей </p>
+            <a href="" class="btn">Зарегистрироваться</a>
+        </div>
+
+        <div class="image">
+            <img src="{% static 'images/home.png'%}" alt="">
+        </div>
+
+        <div class="custom-shape-divider-bottom-1684324473">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div>
+
+    </section>
+
+    <section class="about" id="about">
+    
+        <div class="row">
+            <div class="content">
+                <video width="100%" height="auto" autoplay loop muted style="display: block; margin: 0 auto;">
+                    <source src="{% static 'images/banner-ru_x264.mp4'%}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    
+    </section>
+    
+    <section class="education" id="education">
+
+        <h1 class="heading">Мы поможем <span>записаться на</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Образование</h3>
+                <p>Управление образования: 8 (7132) 56-85-31</p>
+                <a href="https://www.gov.kz/memleket/entities/aktobe-bilim?lang=ru" ></a>
+                <img src="{%static 'images/education3.png'%}" alt="">
+            </div>
+
+            <div class="box">
+                <h3>Творчество</h3>
+                <p>Управление культуры, архивов и документации: 8 (7132) 54-87-47</p>
+                <a href="https://www.gov.kz/memleket/entities/aktobe-arhiv/?lang=ru" target="blank"></a>
+                    <img src="{%static 'images/education1.png'%}" alt="">
+            </div>
+
+            <div class="box">
+                <h3>Спорт</h3>
+                <p>Управление физической культуры и спорта: 8 (7132) 54-69-26</p>
+                <a href="https://www.gov.kz/memleket/entities/aktobe-sport?lang=ru" target="blank"></a>
+                <img src="{%static 'images/education2.png'%}" alt="">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="news" id="news">
+
+        <h1 class="heading">Новости</h1>
+    
+        <div class="main-banner" id="news-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                                <div id="newsCarousel" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+    
+                                        <div class="carousel-item active">
+                                            <img src="{%static 'images/news1.png'%}" class="d-block w-100" alt="Новость #1">
+                                            <div class="carousel-caption">
+                                                <h3>Важное объявление для предпринимателей</h3>
+                                                <p>Объявление о рассмотрении документов конкурсной комиссией по  </p>
+                                                <p>размещению и формированию государственного образовательного  </p>
+                                                <p>в организациях дополнительного образования</p>
+                                                <a href="https://darabala.kz/News/Detail/35" class="btn btn-primary post__button">
+                                                    Подробнее
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <img src="{%static 'images/news2.png'%}" class="d-block w-100" alt="Новость #2">
+                                            <div class="carousel-caption">
+                                                <h3>О плановых технических работах на серверах</h3>
+                                                <p>Уважаемые пользователи! 31 декабря 2023 года с 00:01 до </p>
+                                                <p>1-го  января 2024 года 23:59 будут проводиться технические </p>
+                                                <p>работы на серверном оборудовании.</p>
+                                                <a href="https://darabala.kz/News/Detail/33" class="btn btn-primary post__button">
+                                                    Подробнее
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+        
+                                        <div class="carousel-item">
+                                            <img src="{%static 'images/news3.png'%}" class="d-block w-100" alt="Новость #3" width = 200 height = 200>
+                                            <div class="carousel-caption">
+                                                <h3>Прием документов от предпринимателей по линии образования</h3>
+                                                <p>С 3 по 9 января 2024 года на платформе https://darabala.kz</p>
+                                                <p>будут приниматься заявки на размещение государственного  </p>
+                                                <p>образовательного заказа от организаций, реализующих </p>
+                                                <p>дополнительные образовательные программы для детей.</p>
+                                                <a href="https://darabala.kz/News/Detail/32" class="btn btn-primary post__button">
+                                                    Подробнее
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="carousel-item">
+                                            <img src="{%static 'images/news4.png'%}" class="d-block w-100" alt="Новость #3" width = 200 height = 200>
+                                            <div class="carousel-caption">
+                                                <h3>О выдачи ваучеров для очередников в секции по государственному спортивному заказу</h3>
+                                                <p>Уважаемые пользователи! 30.11.2023 г. В 18.00 по времени Астаны</p>
+                                                <p>будет открыт портал для  очередников в секции по государственному</p>
+                                                <p> спортивному заказу. Вы можете отправить свои заявки на</p>
+                                                <p> участие в государственном спортивном заказе.</p>
+                                                <a href="https://darabala.kz/News/Detail/32" class="btn btn-primary post__button">
+                                                    Подробнее
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{%static 'images/news5.png'%}" class="d-block w-100" alt="Новость #3" width = 200 height = 200>
+                                            <div class="carousel-caption">
+                                                <h3>О плановых технических работах на серверных оборудованиях</h3>
+                                                <p>Уважаемые пользователи! В четверг, 10 ноября 2023 года с 17:00 до</p>
+                                                <p>19:00 будут проводиться технические работы на серверном оборудовании.</p>
+                                                <p> Просим заранее планировать работы с порталом!</p>
+                                                <p> Приносим извинения за доставленные неудобства</p>
+                                                <a href="https://darabala.kz/News/Detail/26" class="btn btn-primary post__button">
+                                                    Подробнее
+                                                    <i class="fa fa-chevron-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#newsCarousel" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Предыдущая</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#newsCarousel" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Следующая</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section class="statistic" id="statistic">
+        <div id="portalStatics" class="about-us section">
+            <div class="container">
+                <div class="row">
+        
+                    <div class="col-lg-12">
+                        <div class="section-heading">
+                            <h2 style="text-align:center">Dara bala <em>в цифрах</em></h2>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="fact-item">
+                                        <div class="count-area-content " style="text-align:center;">
+                                            <div class="icon staticImg">
+                                                <img src="/assets/img/darabala_parent_count.png" alt="">
+                                            </div>
+                                            <div class="count-digit" id="parentCount">0</div>
+                                            <div class="count-title">Всего родителей</div>
+                                            <p>Кол-во зарегистрированных родителей</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="fact-item">
+                                        <div class="count-area-content " style="text-align:center;">
+                                            <div class="icon staticImg">
+                                                <img src="/assets/img/darabala_children_count.png" alt="">
+                                            </div>
+                                            <div class="count-digit" id="childrenCount">0</div>
+                                            <div class="count-title">Всего детей</div>
+                                            <p>Кол-во зарегистрированных детей</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="fact-item">
+                                        <div class="count-area-content" style="text-align:center;">
+                                            <div class="icon staticImg">
+                                                <img src="/assets/img/darabala_queque_count.png" alt="">
+                                            </div>
+                                            <div class="count-digit" id="childrenAppCount">0</div>
+                                            <div class="count-title">Всего действующих заявок</div>
+                                            <p>Кол-во действующих заявок детей</p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="col-lg-3">
+                                    <div class="fact-item">
+                                        <div class="count-area-content" style="text-align:center;">
+                                            <div class="icon staticImg">
+                                                <img src="/assets/img/darabala_queque_count.png" alt="">
+                                            </div>
+                                            <div class="count-digit" id="childrenAppNewCount">0</div>
+                                            <div class="count-title">Всего детей в очереди</div>
+                                            <p>Кол-во детей которые стоят в очереди</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="voucherInfo" class="about-us section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-heading">
+                            <h2 style="text-align:center">Информация о выданных ваучерах</h2>
+                        </div>
+                    </div>
+        
+                    <div class="col-lg-12" style="overflow-y:scroll;height:600px">
+                        <div class="page">
+                            <div class="timeline" id="timelineArea">
+                                <div class="timeline__group">
+                                    <span class="timeline__year time" aria-hidden="true">2008</span>
+                                    <div class="timeline__cards">
+                                        <div class="timeline__card card">
+                                            <header class="card__header">
+                                                <time class="time" datetime="2008-02-02">
+                                                    <span class="time__day"></span>
+                                                    <span class="time__month"></span>
+                                                </time>
+                                            </header>
+                                            <div class="card__content">
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline__card card">
+                                            <header class="card__header">
+                                                <time class="time" datetime="2008-09-01">
+                                                    <span class="time__day"></span>
+                                                    <span class="time__month"></span>
+                                                </time>
+                                                <h3 class="card__title r-title">-</h3>
+                                            </header>
+                                            <div class="card__content">
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline__group">
+                                    <span class="timeline__year time" aria-hidden="true"></span>
+                                    <div class="timeline__cards">
+                                        <div class="timeline__card card">
+                                            <header class="card__header">
+                                                <time class="time" datetime="2008-07-14">
+                                                    <span class="time__day"></span>
+                                                    <span class="time__month"></span>
+                                                </time>
+                                            </header>
+                                            <div class="card__content">
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline__group">
+                                    <span class="timeline__year time" aria-hidden="true">2016</span>
+                                    <div class="timeline__cards">
+                                        <div class="timeline__card card">
+                                            <header class="card__header">
+                                                <time class="time" datetime="2008-08-18">
+                                                    <span class="time__day"></span>
+                                                    <span class="time__month"></span>
+                                                </time>
+                                            </header>
+                                            <div class="card__content">
+                                                <p>-</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities">
+
+        <h1 class="heading">Секции <span>кружки</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="{%static 'images/activities1.png'%}" alt="">
+                <h3>Языковые курсы</h3>
+            </div>
+
+            <div class="box">
+                <img src="{%static 'images/activities5.png'%}" alt="">
+                <h3>Математические курсы</h3>
+            </div>
+
+            <div class="box">
+                <img src="{%static 'images/activities6.png'%}" alt="">
+                <h3>Автомоделирование</h3>
+            </div>
+
+            <div class="box">
+                <img src="{%static 'images/activities2.png'%}" alt="">
+                <h3>Лепка, скульптура</h3>
+            </div>
+
+            <div class="box">
+                <img src="{%static 'images/activities7.png'%}" alt="">
+                <h3>Художественное моделирование одежды</h3>
+            </div>
+
+            <div class="box">
+                <img src="{%static 'images/activities3.png'%}" alt="">
+                <h3>Компьютерная графика</h3>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading"> <span> Наши </span> контакты </h1>
+
+        <div class="icons-container">
+
+            <div class="icons">
+                <i class="fas fa-clock"></i>
+                <h3>Время работы :</h3>
+                <p>Пн - Пт: 08:00 до 00:00</p>
+            </div>
+
+            <div class="icons">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>darabala@mail.ru</p>
+            </div>
+
+            <div class="icons">
+                <i class="fas fa-phone"></i>
+                <h3>Номер телефона</h3>
+                <p>+7 778 233 1718</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="{%static 'images/contact.gif'%}" alt="">
+            </div>
+
+            <form action="">
+                <h3>Связаться</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="Имя">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="Номер телефона">
+                </div>
+                <textarea placeholder="Сообщение" cols="30" rows="10"></textarea>
+                <input type="submit" value="Отправить" class="btn">
+            </form>
+
+        </div>
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <script src="{%static 'script.js'%}"></script>
+
+</body>
+</html>
