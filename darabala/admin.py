@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Parents, Children, Daycares, Clubs, Vouchers, ChildEnrollment
+from .models import Parent, Child, Daycare, Club, Voucher, ChildEnrollment
 
-admin.site.register(Parents)
-admin.site.register(Children)
-admin.site.register(Daycares)
-admin.site.register(Clubs)
-admin.site.register(Vouchers)
+admin.site.register(Parent)
+admin.site.register(Child)
+admin.site.register(Daycare)
+admin.site.register(Club)
+admin.site.register(Voucher)
 admin.site.register(ChildEnrollment)

@@ -1,0 +1,9 @@
+{% extends 'api.html' %}
+
+{% block content %}
+    <h1>Parent Detail</h1>
+    <p>First Name: {{ object.first_name }}</p>
+    <p>Last Name: {{ object.last_name }}</p>
+    <p>IIN: {{ object.iin }}</p>
+    <p>Phone: {{ object.phone }}</p>
+{% endblock %}
