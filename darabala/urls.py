@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from darabala import views
 
+app_name = "darabala"
+
 urlpatterns = [     
     path('parents/', views.ParentListCreate.as_view(), name='parent-list-create'),
     path('parents/<int:pk>/', views.ParentDetail.as_view(), name='parent-detail'),

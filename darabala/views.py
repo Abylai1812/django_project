@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import generics, status
+from rest_framework.permissions import IsAuthenticated
 from .models import Parent, Child, Daycare, Club, Voucher, ChildEnrollment
 from .serializers import ParentSerializer, ChildSerializer, DaycareSerializer, ClubSerializer, VoucherSerializer, ChildEnrollmentSerializer
 
@@ -21,6 +22,7 @@ class ParentListCreate(generics.ListCreateAPIView):
 class ParentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Parent.objects.all()
     serializer_class = ParentSerializer
+    permission_classes = [IsAuthenticated]
 
 class ChildListCreate(generics.ListCreateAPIView):
     queryset = Child.objects.all()
