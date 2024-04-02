@@ -11,4 +11,5 @@ urlpatterns = [
     path("api/token/", TokenObtainPairView.as_view()),
     path("api/token/refresh", TokenRefreshView.as_view()),
     path("api/token/verify", TokenVerifyView.as_view()),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]
