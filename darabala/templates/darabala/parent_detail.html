@@ -1,9 +1,12 @@
-{% extends 'api.html' %}
-
-{% block content %}
-    <h1>Parent Detail</h1>
-    <p>First Name: {{ object.first_name }}</p>
-    <p>Last Name: {{ object.last_name }}</p>
-    <p>IIN: {{ object.iin }}</p>
-    <p>Phone: {{ object.phone }}</p>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parent Detail</title>
+</head>
+<body>
+    <h2>Parent Detail</h2>
+    <p>Name: {{ parent.first_name }} {{ parent.last_name }}</p>
+    <p>Phone: {{ parent.phone }}</p>
+    <p>Address: {{ parent.address }}</p>
+</body>
+</html>

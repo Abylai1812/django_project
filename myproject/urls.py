@@ -12,4 +12,6 @@ urlpatterns = [
     path("api/token/refresh", TokenRefreshView.as_view()),
     path("api/token/verify", TokenVerifyView.as_view()),
     path("__debug__/", include("debug_toolbar.urls")),
+    path('login/', views.login_view, name='login'),
+    path('register/', views.register_view, name='register'), 
 ]
