@@ -25,10 +25,11 @@ class ChildSerializer(serializers.ModelSerializer):
 
 class ParentSerializer(serializers.ModelSerializer):
     children = ChildSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = Parent
         fields = '__all__'
+
 
 class ChildEnrollmentSerializer(serializers.ModelSerializer):
     child = ChildSerializer()
@@ -39,4 +40,3 @@ class ChildEnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = ChildEnrollment
         fields = '__all__'
-

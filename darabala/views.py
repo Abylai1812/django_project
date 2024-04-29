@@ -10,7 +10,7 @@ from rest_framework import filters
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, RegistrationForm
+# from .forms import LoginForm, RegistrationForm
 
 def index(request):
     context: dict[str,str]={
@@ -22,13 +22,8 @@ def index(request):
 def test(request):
     return render(request, "darabala/test.html")
 
-generics
+#generics
 class ParentListCreate(generics.ListCreateAPIView):
-    queryset = Parent.objects.all()
-    serializer_class = ParentSerializer
-    permission_classes = [IsAuthenticated]
-
-class ParentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Parent.objects.all()
     serializer_class = ParentSerializer
     permission_classes = [IsAuthenticated]
@@ -41,6 +36,11 @@ class ParentDetail(generics.RetrieveUpdateDestroyAPIView):
     search_fields = ["first_name","last_name"]
     ordering_fields = ['iin']
 
+class ParentDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Parent.objects.all()
+    serializer_class = ParentSerializer
+    permission_classes = [IsAuthenticated]
+
 class ChildListCreate(generics.ListCreateAPIView):
     queryset = Child.objects.all()
     serializer_class = ChildSerializer
@@ -50,6 +50,12 @@ class ChildDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Child.objects.all()
     serializer_class = ChildSerializer
     permission_classes = [IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
 
 class DaycareListCreate(generics.ListCreateAPIView):
     queryset = Daycare.objects.all()
@@ -65,6 +71,10 @@ class ClubListCreate(generics.ListCreateAPIView):
     queryset = Club.objects.all()
     serializer_class = ClubSerializer
     permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['age_group', 'cost']  
+    search_fields = ['name', 'description']  
+    ordering_fields = ['name', 'cost'] 
 
 class ClubDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Club.objects.all()
@@ -104,11 +114,10 @@ class ChildEnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
         self.perform_update(serializer)
         return Response(serializer.data)
 
-# # filter
-# class CustomPagination(PageNumberPagination):
-#     page_size = 5
-#     page_size_query_param = 'page_size'
-#     max_page_size = 10
+class CustomPagination(PageNumberPagination):
+    page_size = 5
+    page_size_query_param = 'page_size'
+    max_page_size = 10
     
 # class ParentViewSet(viewsets.ModelViewSet):
 #     queryset = Parent.objects.all()
@@ -156,6 +165,9 @@ class ChildEnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
 # class ParentViewSet(viewsets.ModelViewSet):
 #     queryset = Parent.objects.all()
 #     serializer_class = ParentSerializer
+#     permission_classes = [IsAuthenticated]
+#     filter_backends = [DjangoFilterBackend]
+#     filterset_fields = ['gender', 'phone']
 
 # class ChildViewSet(viewsets.ModelViewSet):
 #     queryset = Child.objects.all()
@@ -177,37 +189,60 @@ class ChildEnrollmentDetail(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = ChildEnrollment.objects.all()
 #     serializer_class = ChildEnrollmentSerializer
 
-def child_list(request):
-    # Загрузить детей и их родителей за один запрос - select_related
-    children = Child.objects.select_related('parent').all()
-    return render(request, 'child_list.html', {'children': children})
+# def child_list(request):
+#     # Загрузить детей и их родителей за один запрос - select_related
+#     children = Child.objects.select_related('parent').all()
+#     return render(request, 'child_list.html', {'children': children})
 
-def club_list(request):
-    # Загрузить клубы и их ваучеры за два запроса - prefetch_related
-    clubs = Club.objects.prefetch_related('vouchers').all()
-    return render(request, 'club_list.html', {'clubs': clubs})
+# def club_list(request):
+#     # Загрузить клубы и их ваучеры за два запроса - prefetch_related
+#     clubs = Club.objects.prefetch_related('vouchers').all()
+#     return render(request, 'club_list.html', {'clubs': clubs})
 
-def login_view(request):
-    if request.method == 'POST':
-        form = LoginForm(request, request.POST)
-        if form.is_valid():
-            iin = form.cleaned_data['iin']
-            password = form.cleaned_data['password']
-            user = authenticate(username=iin, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('darabala/parent_detail')
-    else:
-        form = LoginForm(request)
-    return render(request, 'darabala/login.html', {'form': form})
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request, request.POST)
+#         if form.is_valid():
+#             iin = form.cleaned_data['iin']
+#             password = form.cleaned_data['password']
+#             user = authenticate(username=iin, password=password)
+#             if user is not None:
+#                 login(request, user)
+#                 return redirect('darabala/parent_detail')
+#     else:
+#         form = LoginForm(request)
+#     return render(request, 'darabala/login.html', {'form': form})
 
-def register_view(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('darabala/parent_detail')
-    else:
-        form = RegistrationForm()
-    return render(request, 'darabala/register.html', {'form': form})
+# def register_view(request):
+#     if request.method == 'POST':
+#         form = RegistrationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             login(request, user)
+#             return redirect('darabala/parent_detail')
+#     else:
+#         form = RegistrationForm()
+#     return render(request, 'darabala/register.html', {'form': form})
+
+
+# from django.views.decorators.cache import cache_page
+# from django.http import HttpResponse
+# @cache_page(60)  # 
+# def my_view(request):
+#     return HttpResponse('Hello, cached world!')
+
+from django.http import JsonResponse
+import requests
+
+def get_ip_geolocation(request):
+    api_key = "912e4865bb284fc68238956d5149ab02"
+    ip_address = request.GET.get('ip_address', '')
+    url = f"https://ipgeolocation.abstractapi.com/v1/?api_key={api_key}&ip_address={ip_address}"
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+
+        return JsonResponse(response.json())
+    except requests.RequestException as e:
+        return JsonResponse({"error": str(e)})

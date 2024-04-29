@@ -19,6 +19,7 @@ urlpatterns = [
     path('vouchers/<int:pk>/', views.VoucherDetail.as_view(), name='voucher-detail'),
     path('child-enrollments/', views.ChildEnrollmentListCreate.as_view(), name='child-enrollment-list-create'),
     path('child-enrollments/<int:pk>/', views.ChildEnrollmentDetail.as_view(), name='child-enrollment-detail'), 
+    path('ip-location/', views.get_ip_geolocation, name='get_ip_geolocation'),
 ]
 
 # router = routers.DefaultRouter()
